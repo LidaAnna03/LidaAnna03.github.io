@@ -209,33 +209,64 @@
 </section>
 
 <!---------------------- contact us ------------------------>
-<section class="contact" id="contact">
-    <div class="contact-text">
-        <form class="cont_form" action="https://api.web3forms.com/submit" method="POST">
-            <h1 class="sub-title"><span>CONTACT</span></h1>
-            <div class="form-content">
-                <div class="contact-image">
-                    <img src="contact.png" alt="Contact Image">
+   
+    <section class="contact" id="contact">
+        <div class="contact-text">
+            <form
+                class="cont_form"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                onsubmit="return validateForm()"
+            >
+                <h1 class="sub-title"><span>CONTACT</span></h1>
+                <div class="form-content">
+                    <div class="contact-image">
+                        <img src="contact.png" alt="Contact Image" />
+                    </div>
+                    <div class="form-fields">
+                        <input
+                            type="hidden"
+                            name="access_key"
+                            value="cb310c6d-1d8e-4180-9d4d-5d81003e8d21"
+                        />
+                        <label for="fname">Name</label>
+                        <input
+                            class="c_text"
+                            type="text"
+                            id="fname"
+                            name="firstname"
+                            placeholder="Name.."
+                            required
+                            pattern="[A-Za-z\s]{1,32}"
+                            title="Name should only contain letters and spaces."
+                        />
+                        <label for="email">Email</label>
+                        <input
+                            class="c_text"
+                            type="email"
+                            id="email"
+                            name="Email"
+                            placeholder="Email.."
+                            required
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            title="Please enter a valid email address."
+                        />
+                        <label for="subject">Subject</label>
+                        <textarea
+                            class="c_text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Write the message.."
+                            style="height: 200px"
+                            required
+                        ></textarea>
+                        <input class="c_submit" type="submit" value="Send" />
+                    </div>
                 </div>
-                <div class="form-fields">
-                    <label for="fname"> Name</label>
-                    <input class="c_text" type="text" id="fname" name="name" placeholder=" name" required>
-                    <label for="lname">Email</label>
-                    <input class="c_text" type="text" id="lname" name="email" placeholder="email" required>
-                    <label for="subject">Subject</label>
-                    <textarea class="c_text" id="subject" name="subject" placeholder="Write the message.." style="height:200px" required></textarea>
-                    <input class="c_submit" type="submit" value="Send">
-                </div>
-            </div>
-            <br>
-            <!-- <div class="contact-icons">
-                <a href="www.linkedin.com/in/lida-anna-joshy-59547b270"><i class='bx bxl-linkedin-square' style='color:#295acd'></i></a>
-                <a href="lidaanna2025@gmail.com"><i class='bx bxl-gmail' style='color:#295acd'></i></a>
-                <a href=""><i class='bx bx-phone' style='color:#295acd'></i></a>
-            </div> -->
-        </form>
-    </div>
-</section>
+                <br />
+            </form>
+        </div>
+    </section>
 
 <div class="last-text">
 
@@ -286,6 +317,36 @@
     });
 
     document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+            function validateForm() {
+        const name = document.getElementById('fname').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        
+        // Regular expression patterns
+        const namePattern = /^[A-Za-z\s]{1,32}$/;
+        const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        
+        // Validate name
+        if (!namePattern.test(name)) {
+            alert('Name should only contain letters and spaces.');
+            return false;
+        }
+
+        // Validate email
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return false;
+        }
+
+        // Validate subject
+        if (subject.trim() === "") {
+            alert('Subject cannot be empty.');
+            return false;
+        }
+
+        return true;
+    }
 </script>
 
 </body>
