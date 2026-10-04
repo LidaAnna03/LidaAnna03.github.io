@@ -109,8 +109,59 @@ programming, and data analysis to develop practical and intelligent solutions.</
             </div>
         </div>
     </section>
+
+
+
+    <!-- Experince -->
+     <section class="academics" id="academics">
+        <h2>EXPERINCE</h2>
+        <div class="about-text">
+            
+            <div class="academic-info">
+                <div class="academic-item">
+                    <i class='bx bxs-graduation'></i>
+                    <h3>TechRisk Analyst</h3>
+                <p><b>Ernst & Young</b> 
+                    : Working as TechRisk Analystat EY, assessing enterprise applications, IT infrastructure, access controls, system processes, and technology environments across multiple client engagements.
+Collaborated with clients and cross-functional teams to review IT controls, identify technology-related gaps and risks, and document findings and recommendations. <br><br>
+                    <br><br>
+                  <b>Years Present: </b> <span id="ey-duration"></span>
+
+<script>
+const startDate = new Date(2025, 3, 21); // April 21, 2025
+
+function calculateDuration(startDate) {
+    const today = new Date();
+
+    let years = today.getFullYear() - startDate.getFullYear();
+    let months = today.getMonth() - startDate.getMonth();
+
+    if (today.getDate() < startDate.getDate()) {
+        months--;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    return `${years} year${years !== 1 ? 's' : ''} ${months} month${months !== 1 ? 's' : ''}`;
+}
+
+document.getElementById("ey-duration").textContent = calculateDuration(startDate);
+</script>
+                </p>
+                </div>
+               
+               
+              
+            </div>
+        </div>
+    </section>
     
     
+    
+    <!--Projects  -->
 
 
     <section>
